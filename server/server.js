@@ -1,9 +1,11 @@
 const express = require("express");
+const mongoose = require('mongoose')
 const app = express();
 require("dotenv").config();
 app.use(express.json());
 const dbConfig =  require('./config/db.Config')
 const port = process.env.PORT || 5000;
+mongoose.set('strictQuery', true);
 
 const usersRoute = require("./routes/usersRouter");
 const projectsRoute = require("./routes/projectsRoute");
